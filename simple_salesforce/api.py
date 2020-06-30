@@ -464,7 +464,7 @@ class Salesforce:
             method,
             self.apex_url + action,
             name="apexexcute",
-            data=json.dumps(data), **kwargs
+            data=json.dumps(data) if data is None else {}, **kwargs
         )
         try:
             response_content = result.json()
